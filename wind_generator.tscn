@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1qkekq6jgf4c"]
+
+[ext_resource type="Texture2D" uid="uid://cv0nvbe4p112d" path="res://icon.svg" id="1_ppqta"]
+[ext_resource type="Script" path="res://wind_generator.gd" id="1_yu8vt"]
+
+[node name="WindGenerator" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(512, 144)
+texture = ExtResource("1_ppqta")
+script = ExtResource("1_yu8vt")
