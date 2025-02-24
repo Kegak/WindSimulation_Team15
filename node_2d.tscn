@@ -1,3 +1,23 @@
-[gd_scene format=3 uid="uid://1g8kg8andolq"]
+[gd_scene load_steps=3 format=3 uid="uid://cqbiuol6gn0bf"]
+
+[sub_resource type="FluidEffect2DViscosityArtificial" id="FluidEffect2DViscosityArtificial_ncyrh"]
+fluid_viscosity_coefficient = 1.221
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_chykx"]
+size = Vector2(182, 20)
 
 [node name="Node2D" type="Node2D"]
+
+[node name="Fluid2D" type="Fluid2D" parent="."]
+debug_draw = true
+effects = Array[Resource]([SubResource("FluidEffect2DViscosityArtificial_ncyrh")])
+points = PackedVector2Array(0, 0)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+freeze = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(1, 115)
+shape = SubResource("RectangleShape2D_chykx")
