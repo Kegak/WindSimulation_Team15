@@ -1,6 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cqbiuol6gn0bf"]
+[gd_scene load_steps=6 format=3 uid="uid://cqbiuol6gn0bf"]
 
+[ext_resource type="Script" path="res://addons/godot-rapier2d/fluid_2d_circle.gd" id="1_2jdd8"]
 [ext_resource type="Script" path="res://addons/godot-rapier2d/fluid_2d_shader_renderer.gd" id="1_lxx2y"]
+[ext_resource type="Material" uid="uid://cysnk7s2ll173" path="res://addons/godot-rapier2d/water_shader.tres" id="2_gy7vp"]
 
 [sub_resource type="FluidEffect2DViscosityArtificial" id="FluidEffect2DViscosityArtificial_ncyrh"]
 fluid_viscosity_coefficient = 1.221
@@ -14,7 +16,8 @@ size = Vector2(902, 24)
 debug_draw = true
 effects = Array[Resource]([SubResource("FluidEffect2DViscosityArtificial_ncyrh"), null])
 points = PackedVector2Array(0, -2)
-script = ExtResource("1_lxx2y")
+script = ExtResource("1_2jdd8")
+circle_radius = 10
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -24,3 +27,9 @@ freeze = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
 position = Vector2(1, 304)
 shape = SubResource("RectangleShape2D_chykx")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." node_paths=PackedStringArray("fluid", "camera")]
+script = ExtResource("1_lxx2y")
+fluid = NodePath("../Fluid2D")
+camera = NodePath("../Camera2D")
+water_material = ExtResource("2_gy7vp")
