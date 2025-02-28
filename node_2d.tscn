@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cqbiuol6gn0bf"]
+[gd_scene load_steps=7 format=3 uid="uid://cqbiuol6gn0bf"]
 
 [ext_resource type="Script" path="res://addons/godot-rapier2d/fluid_2d_circle.gd" id="1_2jdd8"]
 [ext_resource type="Script" path="res://addons/godot-rapier2d/fluid_2d_shader_renderer.gd" id="1_lxx2y"]
@@ -9,6 +9,9 @@ fluid_viscosity_coefficient = 1.221
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_chykx"]
 size = Vector2(902, 24)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_8ebh8"]
+specular_color = Color(0.00696147, 0.00688516, 0.00667989, 1)
 
 [node name="Node2D" type="Node2D"]
 
@@ -21,11 +24,17 @@ circle_radius = 10
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2(-288, 261)
 freeze = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
-position = Vector2(1, 304)
+position = Vector2(299, 22)
 shape = SubResource("RectangleShape2D_chykx")
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D/CollisionShape2D"]
+position = Vector2(2.49999, -1.50001)
+scale = Vector2(893, 19)
+texture = SubResource("CanvasTexture_8ebh8")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." node_paths=PackedStringArray("fluid", "camera")]
 script = ExtResource("1_lxx2y")
