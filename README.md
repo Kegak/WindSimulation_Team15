@@ -20,7 +20,7 @@ Rapier2D fluid engine has been implemented.
 
 Additional Branches 
 
-Teagan – Most up to date branch with the Rapier2D addon 
+Teagan – The branch for Teagan 
 
  
 
