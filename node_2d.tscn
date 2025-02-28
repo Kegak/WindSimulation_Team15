@@ -13,7 +13,6 @@ size = Vector2(902, 24)
 [node name="Node2D" type="Node2D"]
 
 [node name="Fluid2D" type="Fluid2D" parent="."]
-debug_draw = true
 effects = Array[Resource]([SubResource("FluidEffect2DViscosityArtificial_ncyrh"), null])
 points = PackedVector2Array(0, -2)
 script = ExtResource("1_2jdd8")
