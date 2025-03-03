@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://cqbiuol6gn0bf"]
 
-[ext_resource type="Script" path="res://addons/godot-rapier2d/fluid_2d_circle.gd" id="1_2jdd8"]
+[ext_resource type="Script" path="res://wohoo.gd" id="1_b75g4"]
 [ext_resource type="Script" path="res://addons/godot-rapier2d/fluid_2d_shader_renderer.gd" id="1_lxx2y"]
 [ext_resource type="Material" uid="uid://cysnk7s2ll173" path="res://addons/godot-rapier2d/water_shader.tres" id="2_gy7vp"]
 
 [sub_resource type="FluidEffect2DViscosityArtificial" id="FluidEffect2DViscosityArtificial_ncyrh"]
-fluid_viscosity_coefficient = 1.221
+fluid_viscosity_coefficient = 0.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_chykx"]
 size = Vector2(902, 24)
@@ -16,10 +16,10 @@ specular_color = Color(0.00696147, 0.00688516, 0.00667989, 1)
 [node name="Node2D" type="Node2D"]
 
 [node name="Fluid2D" type="Fluid2D" parent="."]
-effects = Array[Resource]([SubResource("FluidEffect2DViscosityArtificial_ncyrh"), null])
-points = PackedVector2Array(0, -2)
-script = ExtResource("1_2jdd8")
-circle_radius = 10
+debug_draw = true
+lifetime = 1.0
+effects = Array[Resource]([SubResource("FluidEffect2DViscosityArtificial_ncyrh")])
+script = ExtResource("1_b75g4")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
