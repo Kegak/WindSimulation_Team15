@@ -4,31 +4,33 @@
 [ext_resource type="Script" path="res://addons/godot-rapier2d/fluid_2d_shader_renderer.gd" id="1_lxx2y"]
 [ext_resource type="Material" uid="uid://cysnk7s2ll173" path="res://addons/godot-rapier2d/water_shader.tres" id="2_gy7vp"]
 
-[sub_resource type="FluidEffect2DViscosityArtificial" id="FluidEffect2DViscosityArtificial_ncyrh"]
-fluid_viscosity_coefficient = 0.0
+[sub_resource type="FluidEffect2DViscosityArtificial" id="FluidEffect2DViscosityArtificial_kaha7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_chykx"]
-size = Vector2(902, 24)
+size = Vector2(892, 16)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_8ebh8"]
 specular_color = Color(0.00696147, 0.00688516, 0.00667989, 1)
 
 [node name="Node2D" type="Node2D"]
 
-[node name="Fluid2D" type="Fluid2D" parent="."]
-debug_draw = true
+[node name="Fluid2D" type="Fluid2D" parent="." node_paths=PackedStringArray("fluid")]
+density = 0.1
 lifetime = 1.0
-effects = Array[Resource]([SubResource("FluidEffect2DViscosityArtificial_ncyrh")])
+effects = Array[Resource]([SubResource("FluidEffect2DViscosityArtificial_kaha7")])
+position = Vector2(-600, 0)
 script = ExtResource("1_b75g4")
+fluid = NodePath(".")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-62, 0)
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
 position = Vector2(-288, 261)
 freeze = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
-position = Vector2(299, 22)
+position = Vector2(308, 15)
 shape = SubResource("RectangleShape2D_chykx")
 
 [node name="Sprite2D" type="Sprite2D" parent="RigidBody2D/CollisionShape2D"]
