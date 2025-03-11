@@ -1,8 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://cqbiuol6gn0bf"]
+[gd_scene load_steps=6 format=3 uid="uid://cqbiuol6gn0bf"]
 
+<<<<<<< Updated upstream
 [ext_resource type="Script" path="res://addons/godot-rapier2d/fluid_2d_circle.gd" id="1_2jdd8"]
 [ext_resource type="Script" path="res://addons/godot-rapier2d/fluid_2d_shader_renderer.gd" id="1_lxx2y"]
 [ext_resource type="Material" uid="uid://cysnk7s2ll173" path="res://addons/godot-rapier2d/water_shader.tres" id="2_gy7vp"]
+=======
+[ext_resource type="Script" path="res://wohoo.gd" id="1_b75g4"]
+>>>>>>> Stashed changes
 
 [sub_resource type="FluidEffect2DViscosityArtificial" id="FluidEffect2DViscosityArtificial_ncyrh"]
 fluid_viscosity_coefficient = 1.221
@@ -13,13 +17,26 @@ size = Vector2(902, 24)
 [sub_resource type="CanvasTexture" id="CanvasTexture_8ebh8"]
 specular_color = Color(0.00696147, 0.00688516, 0.00667989, 1)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_07mek"]
+
 [node name="Node2D" type="Node2D"]
 
+<<<<<<< Updated upstream
 [node name="Fluid2D" type="Fluid2D" parent="."]
 effects = Array[Resource]([SubResource("FluidEffect2DViscosityArtificial_ncyrh"), null])
 points = PackedVector2Array(0, -2)
 script = ExtResource("1_2jdd8")
 circle_radius = 10
+=======
+[node name="Fluid2D" type="Fluid2D" parent="." node_paths=PackedStringArray("fluid")]
+debug_draw = true
+density = 0.1
+lifetime = 1.0
+effects = Array[Resource]([SubResource("FluidEffect2DViscosityArtificial_kaha7")])
+position = Vector2(-600, 0)
+script = ExtResource("1_b75g4")
+fluid = NodePath(".")
+>>>>>>> Stashed changes
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -36,8 +53,8 @@ position = Vector2(2.49999, -1.50001)
 scale = Vector2(893, 19)
 texture = SubResource("CanvasTexture_8ebh8")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." node_paths=PackedStringArray("fluid", "camera")]
-script = ExtResource("1_lxx2y")
-fluid = NodePath("../Fluid2D")
-camera = NodePath("../Camera2D")
-water_material = ExtResource("2_gy7vp")
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-574, 0)
+shape = SubResource("CircleShape2D_07mek")
