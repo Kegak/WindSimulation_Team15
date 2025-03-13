@@ -16,12 +16,16 @@ Release notes 2/27/2025
 
 Rapier2D fluid engine has been implemented. 
 
- 
+ Release notes 3/13/2025
+
+Counteracted gravity on the fluid. 
+implemented faucet architecture.
 
 Additional Branches 
 
-Teagan – The branch for Teagan 
-
+Teagan – branch for Teagan
+Keegan - branch for Keegan
+Jacob - Most up to date
  
 
  
