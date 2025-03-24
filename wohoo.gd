@@ -1,5 +1,7 @@
 extends Fluid2D
 @export var fluid: Fluid2D
+@export var objects: Node2D
+
 
 var new_points: PackedVector2Array
 var starting_vectors: PackedVector2Array
@@ -22,8 +24,11 @@ func _process(delta: float) -> void:
 	if x % 5 == 0:
 		add_points_and_velocities(new_points,starting_vectors)
 	var points = fluid.points
-	if fluid.tree_exited:
-		collsion()
+	var all_objects = objects.get_children()
+	for object in all_objects:
+		if object.body_entered:
+			print(object.position)
+		
 	for i in points.size():
 		if points[i].y >= 0:
 			points[i].y = 0
@@ -32,4 +37,7 @@ func _process(delta: float) -> void:
 	
 func collsion():
 	var points = fluid.points
-	print(points)
+
+
+func _on_rigid_body_2d_2_body_entered(body: Node) -> void:
+	print("working")
