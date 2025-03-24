@@ -1,87 +1,36 @@
-<<<<<<< Updated upstream
-[gd_scene load_steps=6 format=3 uid="uid://cqbiuol6gn0bf"]
-=======
 [gd_scene load_steps=10 format=3 uid="uid://cqbiuol6gn0bf"]
->>>>>>> Stashed changes
 
-<<<<<<< Updated upstream
-[ext_resource type="Script" path="res://addons/godot-rapier2d/fluid_2d_circle.gd" id="1_2jdd8"]
+[ext_resource type="Script" path="res://wohoo.gd" id="1_b75g4"]
 [ext_resource type="Script" path="res://addons/godot-rapier2d/fluid_2d_shader_renderer.gd" id="1_lxx2y"]
 [ext_resource type="Material" uid="uid://cysnk7s2ll173" path="res://addons/godot-rapier2d/water_shader.tres" id="2_gy7vp"]
-<<<<<<< Updated upstream
-=======
-[ext_resource type="Script" path="res://wohoo.gd" id="1_b75g4"]
->>>>>>> Stashed changes
-=======
 [ext_resource type="Script" path="res://rigid_body_2d.gd" id="4_pgfrq"]
 [ext_resource type="Texture2D" uid="uid://b4c4nsbvhlvrd" path="res://icon.svg" id="4_rk4rc"]
->>>>>>> Stashed changes
 
-[sub_resource type="FluidEffect2DViscosityArtificial" id="FluidEffect2DViscosityArtificial_ncyrh"]
-fluid_viscosity_coefficient = 1.221
+[sub_resource type="FluidEffect2DViscosityArtificial" id="FluidEffect2DViscosityArtificial_kaha7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ykheb"]
 size = Vector2(229, 202)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_chykx"]
-size = Vector2(902, 24)
+size = Vector2(892, 16)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_8ebh8"]
 specular_color = Color(0.00696147, 0.00688516, 0.00667989, 1)
 
-<<<<<<< Updated upstream
-[sub_resource type="CircleShape2D" id="CircleShape2D_07mek"]
-
-[node name="Node2D" type="Node2D"]
-
-<<<<<<< Updated upstream
-[node name="Fluid2D" type="Fluid2D" parent="."]
-effects = Array[Resource]([SubResource("FluidEffect2DViscosityArtificial_ncyrh"), null])
-points = PackedVector2Array(0, -2)
-script = ExtResource("1_2jdd8")
-circle_radius = 10
-=======
-[node name="Fluid2D" type="Fluid2D" parent="." node_paths=PackedStringArray("fluid")]
-debug_draw = true
-=======
 [node name="Node2D" type="Node2D"]
 
 [node name="Fluid2D" type="Fluid2D" parent="." node_paths=PackedStringArray("fluid", "objects") groups=["fluid"]]
->>>>>>> Stashed changes
 density = 0.1
 lifetime = 1.0
 effects = Array[Resource]([SubResource("FluidEffect2DViscosityArtificial_kaha7")])
 position = Vector2(-600, 0)
 script = ExtResource("1_b75g4")
 fluid = NodePath(".")
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
 objects = NodePath("../Collision_Objects")
->>>>>>> Stashed changes
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-62, 0)
 
-<<<<<<< Updated upstream
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
-position = Vector2(-288, 261)
-freeze = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
-position = Vector2(299, 22)
-shape = SubResource("RectangleShape2D_chykx")
-
-[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D/CollisionShape2D"]
-position = Vector2(2.49999, -1.50001)
-scale = Vector2(893, 19)
-texture = SubResource("CanvasTexture_8ebh8")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-574, 0)
-shape = SubResource("CircleShape2D_07mek")
-=======
 [node name="CanvasLayer" type="CanvasLayer" parent="." node_paths=PackedStringArray("fluid", "camera")]
 script = ExtResource("1_lxx2y")
 fluid = NodePath("../Fluid2D")
@@ -121,4 +70,3 @@ texture = SubResource("CanvasTexture_8ebh8")
 
 [connection signal="tree_entered" from="Fluid2D" to="Fluid2D" method="_on_tree_entered"]
 [connection signal="body_entered" from="Collision_Objects/RigidBody2D2" to="Fluid2D" method="_on_rigid_body_2d_2_body_entered"]
->>>>>>> Stashed changes
