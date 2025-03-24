@@ -26,8 +26,13 @@ func _process(delta: float) -> void:
 	var points = fluid.points
 	var all_objects = objects.get_children()
 	for object in all_objects:
+		var collsion_zone = object.get_child(0)
+		var height = collsion_zone.shape.size.y
+		var width = collsion_zone.shape.size.x
 		if object.body_entered:
-			print(object.position)
+			for point in points:
+				if ((object.position.x - width/2 <= point.x) and (point.x <= object.position.x + width/2)) and ((object.position.y - height/2 <= point.y) and (point.y <= object.position.y + height/2)):
+					print(point) 
 		
 	for i in points.size():
 		if points[i].y >= 0:
