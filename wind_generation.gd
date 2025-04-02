@@ -1,4 +1,4 @@
-extends Fluid2D
+class_name WindGeneration extends Fluid2D
 @export var fluid: Fluid2D
 @export var objects: Node2D
 
@@ -30,9 +30,13 @@ func _process(delta: float) -> void:
 		var height = collsion_zone.shape.size.y
 		var width = collsion_zone.shape.size.x
 		if object.body_entered:
+			var index = 0;
+			var velocities = fluid.get_velocities()
 			for point in points:
-				if ((object.position.x - width/2 <= point.x) and (point.x <= object.position.x + width/2)) and ((object.position.y - height/2 <= point.y) and (point.y <= object.position.y + height/2)):
-					print(point) 
+				if ((object.position.x - (width/2) <= point.x) and (point.x <= object.position.x + (width/2))) and ((object.position.y - (height/2) <= point.y) and (point.y <= object.position.y + (height/2))):
+					velocities.set(index, Vector2(1,0))
+					set_points_and_velocities(fluid.points, velocities)
+				index += 1
 		
 	for i in points.size():
 		if points[i].y >= 0:
