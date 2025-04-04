@@ -36,7 +36,11 @@ size = Vector2(20, 105)
 [sub_resource type="CanvasTexture" id="CanvasTexture_ektf1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7f8nx"]
+<<<<<<< Updated upstream
 radius = 96.13
+=======
+radius = 30.4138
+>>>>>>> Stashed changes
 
 [node name="Node2D" type="Node2D"]
 position = Vector2(1, 0)
@@ -45,7 +49,11 @@ position = Vector2(1, 0)
 debug_draw = true
 lifetime = 5.0
 effects = Array[Resource]([SubResource("FluidEffect2DViscosityArtificial_kaha7")])
+<<<<<<< Updated upstream
 position = Vector2(-638, -322)
+=======
+position = Vector2(-621, -87)
+>>>>>>> Stashed changes
 script = ExtResource("1_b75g4")
 fluid = NodePath(".")
 objects = NodePath("../Collision_Objects")
@@ -130,15 +138,45 @@ scale = Vector2(20, 107)
 texture = SubResource("CanvasTexture_ektf1")
 
 [node name="circle_rigidbody_1" type="RigidBody2D" parent="Collision_Objects"]
+<<<<<<< Updated upstream
 position = Vector2(-200, 0)
+=======
+position = Vector2(-234, -37)
+>>>>>>> Stashed changes
 mass = 100000.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Collision_Objects/circle_rigidbody_1"]
 shape = SubResource("CircleShape2D_7f8nx")
 
 [node name="Sprite2D" type="Sprite2D" parent="Collision_Objects/circle_rigidbody_1"]
+<<<<<<< Updated upstream
 position = Vector2(0.49999, -0.999999)
 scale = Vector2(9.55, 9.4)
+=======
+scale = Vector2(2.975, 2.92827)
+texture = ExtResource("3_68oo8")
+
+[node name="circle_rigidbody_2" type="RigidBody2D" parent="Collision_Objects"]
+position = Vector2(-235, 50)
+mass = 100000.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision_Objects/circle_rigidbody_2"]
+shape = SubResource("CircleShape2D_7f8nx")
+
+[node name="Sprite2D" type="Sprite2D" parent="Collision_Objects/circle_rigidbody_2"]
+scale = Vector2(2.975, 2.92827)
+texture = ExtResource("3_68oo8")
+
+[node name="circle_rigidbody_3" type="RigidBody2D" parent="Collision_Objects"]
+position = Vector2(-363, 0)
+mass = 100000.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision_Objects/circle_rigidbody_3"]
+shape = SubResource("CircleShape2D_7f8nx")
+
+[node name="Sprite2D" type="Sprite2D" parent="Collision_Objects/circle_rigidbody_3"]
+scale = Vector2(2.975, 2.92827)
+>>>>>>> Stashed changes
 texture = ExtResource("3_68oo8")
 
 [connection signal="tree_entered" from="Fluid2D" to="Fluid2D" method="_on_tree_entered"]
