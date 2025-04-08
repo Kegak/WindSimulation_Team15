@@ -1,7 +1,12 @@
 [gd_scene load_steps=8 format=3 uid="uid://cqbiuol6gn0bf"]
 
+<<<<<<< Updated upstream
 [ext_resource type="Script" path="res://wind_generation.gd" id="1_b75g4"]
 [ext_resource type="Script" path="res://rigid_body_2d.gd" id="4_pgfrq"]
+=======
+[ext_resource type="Script" path="res://WindGeneration.gd" id="1_b75g4"]
+[ext_resource type="Texture2D" uid="uid://o4mo2w2ftx1v" path="res://addons/gut/images/yellow.png" id="3_68oo8"]
+>>>>>>> Stashed changes
 [ext_resource type="Texture2D" uid="uid://b4c4nsbvhlvrd" path="res://icon.svg" id="4_rk4rc"]
 
 [sub_resource type="FluidEffect2DViscosityArtificial" id="FluidEffect2DViscosityArtificial_kaha7"]
@@ -15,6 +20,32 @@ size = Vector2(892, 16)
 [sub_resource type="CanvasTexture" id="CanvasTexture_8ebh8"]
 specular_color = Color(0.00696147, 0.00688516, 0.00667989, 1)
 
+<<<<<<< Updated upstream
+=======
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1q14i"]
+size = Vector2(20, 433)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_doulm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ikbjb"]
+size = Vector2(882, 20)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_0i6y3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8422a"]
+size = Vector2(20, 88)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_a7dak"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lk617"]
+size = Vector2(20, 105)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_ektf1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7f8nx"]
+radius = 30.4138
+
+>>>>>>> Stashed changes
 [node name="Node2D" type="Node2D"]
 
 [node name="Fluid2D" type="Fluid2D" parent="." node_paths=PackedStringArray("fluid", "objects") groups=["fluid"]]
@@ -22,7 +53,11 @@ debug_draw = true
 density = 0.1
 lifetime = 1.0
 effects = Array[Resource]([SubResource("FluidEffect2DViscosityArtificial_kaha7")])
+<<<<<<< Updated upstream
 position = Vector2(-600, 0)
+=======
+position = Vector2(-621, -87)
+>>>>>>> Stashed changes
 script = ExtResource("1_b75g4")
 fluid = NodePath(".")
 objects = NodePath("../Collision_Objects")
@@ -61,5 +96,89 @@ position = Vector2(2.49999, -1.50001)
 scale = Vector2(893, 19)
 texture = SubResource("CanvasTexture_8ebh8")
 
+<<<<<<< Updated upstream
+=======
+[node name="Right wall" type="RigidBody2D" parent="Collision_Objects"]
+freeze = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision_Objects/Right wall"]
+position = Vector2(442, -20.5)
+shape = SubResource("RectangleShape2D_1q14i")
+
+[node name="Sprite2D" type="Sprite2D" parent="Collision_Objects/Right wall/CollisionShape2D"]
+position = Vector2(1.90735e-06, 0.49999)
+scale = Vector2(20, 434)
+texture = SubResource("CanvasTexture_doulm")
+
+[node name="Ceiling" type="RigidBody2D" parent="Collision_Objects"]
+freeze = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision_Objects/Ceiling"]
+position = Vector2(-9, -227)
+shape = SubResource("RectangleShape2D_ikbjb")
+
+[node name="Sprite2D" type="Sprite2D" parent="Collision_Objects/Ceiling/CollisionShape2D"]
+position = Vector2(0.500048, -1.90735e-06)
+scale = Vector2(883, 20)
+texture = SubResource("CanvasTexture_0i6y3")
+
+[node name="Left wall bottom" type="RigidBody2D" parent="Collision_Objects"]
+freeze = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision_Objects/Left wall bottom"]
+position = Vector2(-432, 151)
+shape = SubResource("RectangleShape2D_8422a")
+
+[node name="Sprite2D" type="Sprite2D" parent="Collision_Objects/Left wall bottom/CollisionShape2D"]
+position = Vector2(-1.90735e-06, 1.90735e-06)
+scale = Vector2(20, 88)
+texture = SubResource("CanvasTexture_a7dak")
+
+[node name="Right wall top" type="RigidBody2D" parent="Collision_Objects"]
+freeze = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision_Objects/Right wall top"]
+position = Vector2(-440, -164.5)
+shape = SubResource("RectangleShape2D_lk617")
+
+[node name="Sprite2D" type="Sprite2D" parent="Collision_Objects/Right wall top/CollisionShape2D"]
+position = Vector2(-1.90735e-06, -0.999998)
+scale = Vector2(20, 107)
+texture = SubResource("CanvasTexture_ektf1")
+
+[node name="circle_rigidbody_1" type="RigidBody2D" parent="Collision_Objects"]
+position = Vector2(-234, -37)
+mass = 100000.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision_Objects/circle_rigidbody_1"]
+shape = SubResource("CircleShape2D_7f8nx")
+
+[node name="Sprite2D" type="Sprite2D" parent="Collision_Objects/circle_rigidbody_1"]
+scale = Vector2(2.975, 2.92827)
+texture = ExtResource("3_68oo8")
+
+[node name="circle_rigidbody_2" type="RigidBody2D" parent="Collision_Objects"]
+position = Vector2(-235, 50)
+mass = 100000.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision_Objects/circle_rigidbody_2"]
+shape = SubResource("CircleShape2D_7f8nx")
+
+[node name="Sprite2D" type="Sprite2D" parent="Collision_Objects/circle_rigidbody_2"]
+scale = Vector2(2.975, 2.92827)
+texture = ExtResource("3_68oo8")
+
+[node name="circle_rigidbody_3" type="RigidBody2D" parent="Collision_Objects"]
+position = Vector2(-363, 0)
+mass = 100000.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision_Objects/circle_rigidbody_3"]
+shape = SubResource("CircleShape2D_7f8nx")
+
+[node name="Sprite2D" type="Sprite2D" parent="Collision_Objects/circle_rigidbody_3"]
+scale = Vector2(2.975, 2.92827)
+texture = ExtResource("3_68oo8")
+
+>>>>>>> Stashed changes
 [connection signal="tree_entered" from="Fluid2D" to="Fluid2D" method="_on_tree_entered"]
 [connection signal="body_entered" from="Collision_Objects/RigidBody2D2" to="Fluid2D" method="_on_rigid_body_2d_2_body_entered"]
