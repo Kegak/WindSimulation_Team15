@@ -12,7 +12,7 @@ var dir : Vector2
 
 func _ready() -> void:
 
-	points_array = create_rectangle_points(1,1) # X means rows and Y is Collumns
+	points_array = create_rectangle_points(1,2) # X means rows and Y is Collumns
 
 	added_vector.resize(points_array.size())
 	var gravity_value = ProjectSettings.get("physics/2d/default_gravity")
@@ -29,17 +29,6 @@ func _process(delta: float) -> void:
 		add_points_and_velocities(points_array,added_vector)
 	var points = fluid.points
 	var velocities = fluid.get_velocities()
-	for i in velocities.size():
-		if velocities[i].x < -10:
-			if velocities[i].y > 10:
-				velocities.set(i, Vector2(-10, 10))
-			else:
-				velocities.set(i, Vector2(-10,velocities[i].y))
-		if velocities[i].y > 10:
-			if velocities[i].x < -10:
-				velocities.set(i, Vector2(-10, 10))
-			else:
-				velocities.set(i, Vector2(velocities[i].x, 10))
 	fluid.set_points_and_velocities(points, velocities)
 	var all_objects = objects.get_children()
 	for object in all_objects:
@@ -50,17 +39,17 @@ func _process(delta: float) -> void:
 				var height = collsion_zone.shape.size.y
 				var width = collsion_zone.shape.size.x
 				for point in points:
-					if ((object.get_global_transform()[2][0] - (width/2) <= point.x) and (point.x <= object.get_global_transform()[2][0] + (width/2))) and ((object.get_global_transform()[2][1] - (height/2) <= point.y) and (point.y <= object.get_global_transform()[2][1] + (height/2))):
+					if ((object.get_global_transform()[2][0] - (width/2) <= (fluid.get_global_transform()[2][0] + point.x)) and ((fluid.get_global_transform()[2][0] + point.x) <= object.get_global_transform()[2][0] + (width/2))) and ((object.get_global_transform()[2][1] - (height/2) <= (fluid.get_global_transform()[2][1] + point.y)) and ((fluid.get_global_transform()[2][1] + point.y) <= object.get_global_transform()[2][1] + (height/2))):
 						velocities.set(index, collsion())
-						#set_points_and_velocities(fluid.points, velocities)
+						set_points_and_velocities(fluid.points, velocities)
 					index += 1
 					
 			if (collsion_zone.get_shape() is CircleShape2D):
 				var radius = collsion_zone.shape.radius
 				for point in points:
-					if ((point.x - object.get_global_transform()[2][0])**2 + (point.y - object.get_global_transform()[2][1])**2) < radius**2:
+					if (((fluid.get_global_transform()[2][0] + point.x) - object.get_global_transform()[2][0])**2 + ((fluid.get_global_transform()[2][1] + point.y) - object.get_global_transform()[2][1])**2) < radius**2:
 						velocities.set(index, collsion())
-						#set_points_and_velocities(fluid.points, velocities)
+						set_points_and_velocities(fluid.points, velocities)
 					index += 1
 		
 	
