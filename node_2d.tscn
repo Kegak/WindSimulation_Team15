@@ -164,4 +164,3 @@ texture = ExtResource("3_68oo8")
 
 [connection signal="tree_entered" from="Fluid2D" to="Fluid2D" method="_on_tree_entered"]
 [connection signal="body_entered" from="Collision_Objects/test object" to="Fluid2D" method="_on_rigid_body_2d_2_body_entered"]
-

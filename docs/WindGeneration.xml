@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?xml-stylesheet type="text/xsl" href="stylesheet.xsl"?>
+<class name="WindGeneration" inherits="Fluid2D" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/godotengine/godot/master/doc/class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<methods>
+		<method name="_ready">
+			<return type="void" />
+			<description>
+			</description>
+		</method>
+		<method name="_process">
+			<return type="void" />
+			<param index="0" name="delta" type="float" />
+			<description>
+			</description>
+		</method>
+		<method name="collsion">
+			<return type="void" />
+			<description>
+			</description>
+		</method>
+		<method name="_on_rigid_body_2d_2_body_entered">
+			<return type="void" />
+			<param index="0" name="body" type="Node" />
+			<description>
+			</description>
+		</method>
+	</methods>
+	<members>
+		<member name="fluid" type="Fluid2D" setter="" getter="">
+		</member>
+		<member name="objects" type="Node2D" setter="" getter="">
+		</member>
+		<member name="new_points" type="PackedVector2Array" setter="" getter="">
+		</member>
+		<member name="starting_vectors" type="PackedVector2Array" setter="" getter="">
+		</member>
+		<member name="timer" type="int" setter="" getter="" default="10">
+		</member>
+		<member name="x" type="int" setter="" getter="" default="0">
+		</member>
+		<member name="grav_dir_opposite" type="Vector2" setter="" getter="">
+		</member>
+	</members>
+</class>
