@@ -11,11 +11,7 @@ var grav_dir_opposite : Vector2
 var dir : Vector2
 
 func _ready() -> void:
-<<<<<<< Updated upstream
-	points_array = create_rectangle_points(1,20) # X means rows and Y is Collumns
-=======
 	points_array = create_rectangle_points(1,1) # X means rows and Y is Collumns
->>>>>>> Stashed changes
 	added_vector.resize(points_array.size())
 	var gravity_value = ProjectSettings.get("physics/2d/default_gravity")
 	var gravity_dir = ProjectSettings.get("physics/2d/default_gravity_vector")
@@ -26,23 +22,6 @@ func _ready() -> void:
 	
 
 func _process(delta: float) -> void:
-<<<<<<< Updated upstream
-	if x % 10 == 0:
-		add_points_and_velocities(points_array, added_vector)
-	x+=1
-	# 100,000 kg for object mass is a decent weight for something light but add 8x gravity scale for object that is hard to move
-	var all_objects = objects.get_children()
-	for object in all_objects:
-		var collsion_zone = object.get_child(0)
-		if (collsion_zone.get_shape() is RectangleShape2D ): 
-			var height = collsion_zone.shape.size.y
-			var width = collsion_zone.shape.size.x
-			print("Rectangle")
-		if (collsion_zone.get_shape() is CircleShape2D):
-			print("Circle")
-		#print(object.transform.x)
-		
-=======
 	if x % 5 == 0:
 		add_points_and_velocities(points_array,added_vector)
 	var points = fluid.points
@@ -84,4 +63,3 @@ func _process(delta: float) -> void:
 	
 func collsion():
 	var points = fluid.points
->>>>>>> Stashed changes
