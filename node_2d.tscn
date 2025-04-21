@@ -49,6 +49,7 @@ position = Vector2(-602, -1)
 script = ExtResource("1_j0gf5")
 fluid = NodePath(".")
 objects = NodePath("../Collision_Objects")
+y = 2
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
