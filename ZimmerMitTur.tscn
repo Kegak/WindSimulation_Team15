@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dtw1etao4yu8m"]
+[gd_scene load_steps=14 format=3 uid="uid://l8u35u183644"]
 
 [ext_resource type="Script" path="res://WindGeneration.gd" id="1_erxmw"]
 [ext_resource type="Texture2D" uid="uid://dwlmb31gfnxt0" path="res://addons/kenney_prototype_textures/dark/texture_09.png" id="2_yb7kp"]

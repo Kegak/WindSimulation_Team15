@@ -1,8 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://cqbiuol6gn0bf"]
+[gd_scene load_steps=10 format=3 uid="uid://lmsec5fqghme"]
 
-[ext_resource type="Script" path="res://WindGeneration.gd" id="1_1jtrf"]
-[ext_resource type="Texture2D" uid="uid://dwlmb31gfnxt0" path="res://addons/kenney_prototype_textures/dark/texture_09.png" id="2_lkyg4"]
-[ext_resource type="Texture2D" uid="uid://chdtmjhymgcn4" path="res://addons/kenney_prototype_textures/green/texture_03.png" id="3_qiwdh"]
+[ext_resource type="Script" path="res://WindGeneration.gd" id="1_xy7km"]
+[ext_resource type="Texture2D" uid="uid://dwlmb31gfnxt0" path="res://addons/kenney_prototype_textures/dark/texture_09.png" id="2_g1u74"]
+[ext_resource type="Texture2D" uid="uid://chdtmjhymgcn4" path="res://addons/kenney_prototype_textures/green/texture_03.png" id="3_rrihj"]
 
 [sub_resource type="FluidEffect2DViscosityArtificial" id="FluidEffect2DViscosityArtificial_kaha7"]
 
@@ -29,7 +29,7 @@ debug_draw = true
 lifetime = 3.0
 effects = Array[Resource]([SubResource("FluidEffect2DViscosityArtificial_kaha7")])
 position = Vector2(-1391, -621)
-script = ExtResource("1_1jtrf")
+script = ExtResource("1_xy7km")
 fluid = NodePath(".")
 objects = NodePath("../Collision_Objects")
 y = 40
@@ -51,7 +51,7 @@ shape = SubResource("RectangleShape2D_7mybl")
 [node name="Sprite2D" type="Sprite2D" parent="Collision_Objects/RigidBody2D"]
 position = Vector2(101.625, 0)
 scale = Vector2(2.04614, 0.136719)
-texture = ExtResource("2_lkyg4")
+texture = ExtResource("2_g1u74")
 
 [node name="RigidBody2D2" type="RigidBody2D" parent="Collision_Objects"]
 position = Vector2(1076, -12)
@@ -64,7 +64,7 @@ shape = SubResource("RectangleShape2D_5fmqh")
 [node name="Sprite2D" type="Sprite2D" parent="Collision_Objects/RigidBody2D2"]
 position = Vector2(0.999887, -3.99996)
 scale = Vector2(0.136719, 0.992188)
-texture = ExtResource("2_lkyg4")
+texture = ExtResource("2_g1u74")
 
 [node name="RigidBody2D3" type="RigidBody2D" parent="Collision_Objects"]
 position = Vector2(-3, -593)
@@ -77,7 +77,7 @@ shape = SubResource("RectangleShape2D_vx7j7")
 [node name="Sprite2D" type="Sprite2D" parent="Collision_Objects/RigidBody2D3"]
 position = Vector2(96.5, -2.50008)
 scale = Vector2(2.05371, 0.131836)
-texture = ExtResource("2_lkyg4")
+texture = ExtResource("2_g1u74")
 
 [node name="RigidBody2D4" type="RigidBody2D" parent="Collision_Objects"]
 position = Vector2(-1056, -433)
@@ -88,7 +88,7 @@ shape = SubResource("RectangleShape2D_xqutj")
 
 [node name="Sprite2D" type="Sprite2D" parent="Collision_Objects/RigidBody2D4"]
 scale = Vector2(0.19, 0.45)
-texture = ExtResource("3_qiwdh")
+texture = ExtResource("3_rrihj")
 
 [node name="RigidBody2D5" type="RigidBody2D" parent="Collision_Objects"]
 position = Vector2(-1052, 407)
@@ -99,6 +99,6 @@ shape = SubResource("RectangleShape2D_80hny")
 
 [node name="Sprite2D" type="Sprite2D" parent="Collision_Objects/RigidBody2D5"]
 scale = Vector2(0.19, 0.45)
-texture = ExtResource("3_qiwdh")
+texture = ExtResource("3_rrihj")
 
 [connection signal="tree_entered" from="Fluid2D" to="Fluid2D" method="_on_tree_entered"]
