@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://hr24bjr2u66c"]
+[gd_scene load_steps=19 format=3 uid="uid://1i4bt28rp35o"]
 
 [ext_resource type="Script" path="res://WindGeneration.gd" id="1_slb57"]
 [ext_resource type="Texture2D" uid="uid://b4c4nsbvhlvrd" path="res://icon.svg" id="2_0r0nm"]
@@ -54,6 +54,7 @@ position = Vector2(-602, -1)
 script = ExtResource("1_slb57")
 fluid = NodePath(".")
 objects = NodePath("../Collision_Objects")
+y = 2
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
