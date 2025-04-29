@@ -16,9 +16,16 @@ Release notes 4/10/2025
 
 Implemented lattice boltzmann, and set up a basic room
 
+Release notes 4/24/2025
+Each person created new rooms, Teagan started minor refactoring of the code.
+
 Additional Branches
 
-Teagan – branch for Teagan Keegan - Most up to date Jacob - Branch for Jacob James - Branch for James
+Teagan – branch for Teagan 
+Keegan - branch for Keegan 
+Jacob - Branch for Jacob 
+James - Branch for James
+Main - Most up-to-date
 
 License needed in the readme:
 
