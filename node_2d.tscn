@@ -10,13 +10,17 @@
 size = Vector2(229, 202)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_chykx"]
+
 size = Vector2(894, 27)
+
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_8ebh8"]
 specular_color = Color(0.00696147, 0.00688516, 0.00667989, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1q14i"]
+
 size = Vector2(20, 433)
+
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_doulm"]
 
