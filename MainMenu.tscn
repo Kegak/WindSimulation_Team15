@@ -1,0 +1,43 @@
+[gd_scene load_steps=2 format=3 uid="uid://cs77tmxocebco"]
+
+[ext_resource type="Script" path="res://node_2d.gd" id="1_una28"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_una28")
+
+[node name="Button_JacobRoom" type="Button" parent="."]
+offset_left = 900.0
+offset_top = 15.0
+offset_right = 1100.0
+offset_bottom = 72.0
+theme_override_font_sizes/font_size = 35
+text = "Jacob room"
+
+[node name="Button_KeeganRoom" type="Button" parent="."]
+offset_left = 649.0
+offset_top = 13.0
+offset_right = 880.0
+offset_bottom = 70.0
+theme_override_font_sizes/font_size = 35
+text = "Keegan Room"
+
+[node name="Button_JamesRoom" type="Button" parent="."]
+offset_left = 409.0
+offset_top = 13.0
+offset_right = 626.0
+offset_bottom = 70.0
+theme_override_font_sizes/font_size = 35
+text = "James Room"
+
+[node name="Button_TeaganRoom" type="Button" parent="."]
+offset_left = 137.0
+offset_top = 10.0
+offset_right = 375.0
+offset_bottom = 67.0
+theme_override_font_sizes/font_size = 35
+text = "Teagan Room"
+
+[connection signal="pressed" from="Button_JacobRoom" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button_KeeganRoom" to="." method="_on_button_keegan_room_pressed"]
+[connection signal="pressed" from="Button_JamesRoom" to="." method="_on_button_james_room_pressed"]
+[connection signal="pressed" from="Button_TeaganRoom" to="." method="_on_button_teagan_room_pressed"]
