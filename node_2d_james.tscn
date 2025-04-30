@@ -1,5 +1,6 @@
-[gd_scene load_steps=17 format=3 uid="uid://cuums1d6ta78u"]
+[gd_scene load_steps=18 format=3 uid="uid://cuums1d6ta78u"]
 
+[ext_resource type="Script" path="res://node_2d_james.gd" id="1_ldqlf"]
 [ext_resource type="Script" path="res://WindGeneration.gd" id="1_yleby"]
 [ext_resource type="Texture2D" uid="uid://b4c4nsbvhlvrd" path="res://icon.svg" id="2_2u7mn"]
 [ext_resource type="Texture2D" uid="uid://o4mo2w2ftx1v" path="res://addons/gut/images/yellow.png" id="3_wew1i"]
@@ -40,6 +41,7 @@ radius = 30.4138
 
 [node name="Node2D" type="Node2D"]
 position = Vector2(1, 0)
+script = ExtResource("1_ldqlf")
 
 [node name="Fluid2D" type="Fluid2D" parent="." node_paths=PackedStringArray("fluid", "objects") groups=["fluid"]]
 debug_draw = true
@@ -199,5 +201,14 @@ shape = SubResource("CircleShape2D_7f8nx")
 scale = Vector2(2.975, 2.92827)
 texture = ExtResource("3_wew1i")
 
+[node name="Button" type="Button" parent="."]
+offset_left = 235.0
+offset_top = -284.0
+offset_right = 527.0
+offset_bottom = -232.0
+theme_override_font_sizes/font_size = 20
+text = "Return to main menu"
+
 [connection signal="tree_entered" from="Fluid2D" to="Fluid2D" method="_on_tree_entered"]
 [connection signal="body_entered" from="Collision_Objects/test object" to="Fluid2D" method="_on_rigid_body_2d_2_body_entered"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

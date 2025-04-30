@@ -1,6 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://cs77tmxocebco"]
+[gd_scene load_steps=8 format=3 uid="uid://cs77tmxocebco"]
 
 [ext_resource type="Script" path="res://node_2d.gd" id="1_una28"]
+[ext_resource type="Texture2D" uid="uid://b28pa5jjo5nnt" path="res://room images/Jacob.png" id="2_1nh8f"]
+[ext_resource type="Texture2D" uid="uid://c7ovg35l7dv5" path="res://room images/Keegan.png" id="3_qk2qy"]
+[ext_resource type="Texture2D" uid="uid://twuhmhk4x0du" path="res://room images/James.png" id="4_6muil"]
+[ext_resource type="Texture2D" uid="uid://sv4gbdbv4tvo" path="res://room images/alt.png" id="5_2xej8"]
+[ext_resource type="Texture2D" uid="uid://tcg1hdlybjuw" path="res://room images/Teegan.png" id="6_ryign"]
+[ext_resource type="Texture2D" uid="uid://curftbp0hmc3" path="res://room images/base.png" id="7_y5jt5"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_una28")
@@ -11,33 +17,88 @@ offset_top = 15.0
 offset_right = 1100.0
 offset_bottom = 72.0
 theme_override_font_sizes/font_size = 35
-text = "Jacob room"
+text = "Slant room"
 
 [node name="Button_KeeganRoom" type="Button" parent="."]
 offset_left = 649.0
 offset_top = 13.0
-offset_right = 880.0
+offset_right = 889.0
 offset_bottom = 70.0
 theme_override_font_sizes/font_size = 35
-text = "Keegan Room"
+text = "Largest Room"
 
 [node name="Button_JamesRoom" type="Button" parent="."]
-offset_left = 409.0
+offset_left = 376.0
 offset_top = 13.0
-offset_right = 626.0
-offset_bottom = 70.0
+offset_right = 632.0
+offset_bottom = 79.0
 theme_override_font_sizes/font_size = 35
-text = "James Room"
+text = "Big base Room"
+
+[node name="Button_AltRoom" type="Button" parent="."]
+offset_left = 670.0
+offset_top = 322.0
+offset_right = 962.0
+offset_bottom = 379.0
+theme_override_font_sizes/font_size = 35
+text = "Window Room"
 
 [node name="Button_TeaganRoom" type="Button" parent="."]
-offset_left = 137.0
-offset_top = 10.0
-offset_right = 375.0
-offset_bottom = 67.0
+offset_left = 128.0
+offset_top = 18.0
+offset_right = 366.0
+offset_bottom = 75.0
 theme_override_font_sizes/font_size = 35
-text = "Teagan Room"
+text = "Table Room"
 
-[connection signal="pressed" from="Button_JacobRoom" to="." method="_on_button_pressed"]
+[node name="Button_BaseRoom" type="Button" parent="."]
+offset_left = 279.0
+offset_top = 305.0
+offset_right = 475.0
+offset_bottom = 362.0
+theme_override_font_sizes/font_size = 35
+text = "Base Room"
+
+[node name="Jacob" type="Sprite2D" parent="."]
+position = Vector2(1001, 173)
+scale = Vector2(0.337838, 0.337838)
+texture = ExtResource("2_1nh8f")
+
+[node name="Keegan" type="Sprite2D" parent="."]
+position = Vector2(759, 167)
+scale = Vector2(0.217061, 0.217061)
+texture = ExtResource("3_qk2qy")
+
+[node name="James" type="Sprite2D" parent="."]
+position = Vector2(499, 161)
+scale = Vector2(0.24543, 0.24543)
+texture = ExtResource("4_6muil")
+
+[node name="Alt" type="Sprite2D" parent="."]
+position = Vector2(813, 467)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("5_2xej8")
+
+[node name="Teagan" type="Sprite2D" parent="."]
+position = Vector2(236, 162)
+scale = Vector2(0.223333, 0.223333)
+texture = ExtResource("6_ryign")
+
+[node name="base" type="Sprite2D" parent="."]
+position = Vector2(342, 476)
+scale = Vector2(0.372299, 0.372299)
+texture = ExtResource("7_y5jt5")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 473.0
+offset_top = 238.0
+offset_right = 714.0
+offset_bottom = 345.0
+text = "Rooms differ in size and scale, Images are scaled to fit into the main menu*"
+
+[connection signal="pressed" from="Button_JacobRoom" to="." method="_on_button_jacob_room_pressed"]
 [connection signal="pressed" from="Button_KeeganRoom" to="." method="_on_button_keegan_room_pressed"]
 [connection signal="pressed" from="Button_JamesRoom" to="." method="_on_button_james_room_pressed"]
+[connection signal="pressed" from="Button_AltRoom" to="." method="_on_button_alt_room_pressed"]
 [connection signal="pressed" from="Button_TeaganRoom" to="." method="_on_button_teagan_room_pressed"]
+[connection signal="pressed" from="Button_BaseRoom" to="." method="_on_button_base_room_pressed"]
