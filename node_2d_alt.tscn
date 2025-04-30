@@ -1,5 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://lmsec5fqghme"]
+[gd_scene load_steps=11 format=3 uid="uid://doqcyq5a3t6yg"]
 
+[ext_resource type="Script" path="res://node_2d_alt.gd" id="1_ksgly"]
 [ext_resource type="Script" path="res://WindGeneration.gd" id="1_xy7km"]
 [ext_resource type="Texture2D" uid="uid://dwlmb31gfnxt0" path="res://addons/kenney_prototype_textures/dark/texture_09.png" id="2_g1u74"]
 [ext_resource type="Texture2D" uid="uid://chdtmjhymgcn4" path="res://addons/kenney_prototype_textures/green/texture_03.png" id="3_rrihj"]
@@ -23,6 +24,7 @@ size = Vector2(196, 460)
 
 [node name="Zimmer mit Tur" type="Node2D"]
 position = Vector2(1, 0)
+script = ExtResource("1_ksgly")
 
 [node name="Fluid2D" type="Fluid2D" parent="." node_paths=PackedStringArray("fluid", "objects") groups=["fluid"]]
 debug_draw = true
@@ -101,4 +103,13 @@ shape = SubResource("RectangleShape2D_80hny")
 scale = Vector2(0.19, 0.45)
 texture = ExtResource("3_rrihj")
 
+[node name="Button" type="Button" parent="."]
+offset_left = 854.0
+offset_top = -782.0
+offset_right = 1303.0
+offset_bottom = -702.0
+theme_override_font_sizes/font_size = 30
+text = "Return to main menu"
+
 [connection signal="tree_entered" from="Fluid2D" to="Fluid2D" method="_on_tree_entered"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

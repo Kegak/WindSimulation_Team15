@@ -1,0 +1,214 @@
+[gd_scene load_steps=18 format=3 uid="uid://cuums1d6ta78u"]
+
+[ext_resource type="Script" path="res://node_2d_james.gd" id="1_ldqlf"]
+[ext_resource type="Script" path="res://WindGeneration.gd" id="1_yleby"]
+[ext_resource type="Texture2D" uid="uid://b4c4nsbvhlvrd" path="res://icon.svg" id="2_2u7mn"]
+[ext_resource type="Texture2D" uid="uid://o4mo2w2ftx1v" path="res://addons/gut/images/yellow.png" id="3_wew1i"]
+
+[sub_resource type="FluidEffect2DViscosityArtificial" id="FluidEffect2DViscosityArtificial_kaha7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ykheb"]
+size = Vector2(229, 202)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_chykx"]
+size = Vector2(894, 27)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_8ebh8"]
+specular_color = Color(0.00696147, 0.00688516, 0.00667989, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1q14i"]
+size = Vector2(20, 433)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_doulm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ikbjb"]
+size = Vector2(882, 20)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_0i6y3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8422a"]
+size = Vector2(20, 88)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_a7dak"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lk617"]
+size = Vector2(20, 105)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_ektf1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7f8nx"]
+radius = 30.4138
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(1, 0)
+script = ExtResource("1_ldqlf")
+
+[node name="Fluid2D" type="Fluid2D" parent="." node_paths=PackedStringArray("fluid", "objects") groups=["fluid"]]
+debug_draw = true
+lifetime = 5.0
+effects = Array[Resource]([SubResource("FluidEffect2DViscosityArtificial_kaha7")])
+position = Vector2(-621, -87)
+script = ExtResource("1_yleby")
+fluid = NodePath(".")
+objects = NodePath("../Collision_Objects")
+y = 1
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Collision_Objects" type="Node2D" parent="."]
+
+[node name="test object" type="RigidBody2D" parent="Collision_Objects" groups=["Collsion_Objects"]]
+position = Vector2(5, 85)
+disable_mode = 2
+input_pickable = true
+mass = 100000.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision_Objects/test object"]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_ykheb")
+
+[node name="Sprite2D" type="Sprite2D" parent="Collision_Objects/test object"]
+position = Vector2(0, 4)
+scale = Vector2(1.78125, 1.57031)
+texture = ExtResource("2_2u7mn")
+
+[node name="Floor" type="RigidBody2D" parent="Collision_Objects" groups=["Collsion_Objects"]]
+freeze = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision_Objects/Floor"]
+position = Vector2(-122, 305)
+shape = SubResource("RectangleShape2D_chykx")
+
+[node name="Sprite2D" type="Sprite2D" parent="Collision_Objects/Floor/CollisionShape2D"]
+position = Vector2(0.49996, -3.33786e-06)
+scale = Vector2(893, 27)
+texture = SubResource("CanvasTexture_8ebh8")
+
+[node name="Floor2" type="RigidBody2D" parent="Collision_Objects" groups=["Collsion_Objects"]]
+freeze = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision_Objects/Floor2"]
+position = Vector2(128, 305)
+shape = SubResource("RectangleShape2D_chykx")
+
+[node name="Sprite2D" type="Sprite2D" parent="Collision_Objects/Floor2/CollisionShape2D"]
+position = Vector2(0.49996, -3.33786e-06)
+scale = Vector2(893, 27)
+texture = SubResource("CanvasTexture_8ebh8")
+
+[node name="Right wall" type="RigidBody2D" parent="Collision_Objects"]
+freeze = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision_Objects/Right wall"]
+position = Vector2(565, 75)
+shape = SubResource("RectangleShape2D_1q14i")
+
+[node name="Sprite2D" type="Sprite2D" parent="Collision_Objects/Right wall/CollisionShape2D"]
+position = Vector2(1.90735e-06, 0.49999)
+scale = Vector2(20, 434)
+texture = SubResource("CanvasTexture_doulm")
+
+[node name="Right wall2" type="RigidBody2D" parent="Collision_Objects"]
+freeze = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision_Objects/Right wall2"]
+position = Vector2(565, -107)
+shape = SubResource("RectangleShape2D_1q14i")
+
+[node name="Sprite2D" type="Sprite2D" parent="Collision_Objects/Right wall2/CollisionShape2D"]
+position = Vector2(1.90735e-06, 0.49999)
+scale = Vector2(20, 434)
+texture = SubResource("CanvasTexture_doulm")
+
+[node name="Ceiling" type="RigidBody2D" parent="Collision_Objects"]
+freeze = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision_Objects/Ceiling"]
+position = Vector2(-134, -313)
+shape = SubResource("RectangleShape2D_ikbjb")
+
+[node name="Sprite2D" type="Sprite2D" parent="Collision_Objects/Ceiling/CollisionShape2D"]
+position = Vector2(0.500048, -1.90735e-06)
+scale = Vector2(883, 20)
+texture = SubResource("CanvasTexture_0i6y3")
+
+[node name="Ceiling2" type="RigidBody2D" parent="Collision_Objects"]
+freeze = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision_Objects/Ceiling2"]
+position = Vector2(134, -314)
+shape = SubResource("RectangleShape2D_ikbjb")
+
+[node name="Sprite2D" type="Sprite2D" parent="Collision_Objects/Ceiling2/CollisionShape2D"]
+position = Vector2(0.500048, -1.90735e-06)
+scale = Vector2(883, 20)
+texture = SubResource("CanvasTexture_0i6y3")
+
+[node name="Left wall bottom" type="RigidBody2D" parent="Collision_Objects"]
+freeze = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision_Objects/Left wall bottom"]
+position = Vector2(-558, 248)
+shape = SubResource("RectangleShape2D_8422a")
+
+[node name="Sprite2D" type="Sprite2D" parent="Collision_Objects/Left wall bottom/CollisionShape2D"]
+position = Vector2(-1.90735e-06, 1.90735e-06)
+scale = Vector2(20, 88)
+texture = SubResource("CanvasTexture_a7dak")
+
+[node name="Right wall top" type="RigidBody2D" parent="Collision_Objects"]
+freeze = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision_Objects/Right wall top"]
+position = Vector2(-565, -250)
+shape = SubResource("RectangleShape2D_lk617")
+
+[node name="Sprite2D" type="Sprite2D" parent="Collision_Objects/Right wall top/CollisionShape2D"]
+position = Vector2(-1.90735e-06, -0.999998)
+scale = Vector2(20, 107)
+texture = SubResource("CanvasTexture_ektf1")
+
+[node name="circle_rigidbody_1" type="RigidBody2D" parent="Collision_Objects"]
+position = Vector2(-234, -37)
+mass = 100000.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision_Objects/circle_rigidbody_1"]
+shape = SubResource("CircleShape2D_7f8nx")
+
+[node name="Sprite2D" type="Sprite2D" parent="Collision_Objects/circle_rigidbody_1"]
+scale = Vector2(2.975, 2.92827)
+texture = ExtResource("3_wew1i")
+
+[node name="circle_rigidbody_2" type="RigidBody2D" parent="Collision_Objects"]
+position = Vector2(-235, 50)
+mass = 100000.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision_Objects/circle_rigidbody_2"]
+shape = SubResource("CircleShape2D_7f8nx")
+
+[node name="Sprite2D" type="Sprite2D" parent="Collision_Objects/circle_rigidbody_2"]
+scale = Vector2(2.975, 2.92827)
+texture = ExtResource("3_wew1i")
+
+[node name="circle_rigidbody_3" type="RigidBody2D" parent="Collision_Objects"]
+position = Vector2(-363, 0)
+mass = 100000.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision_Objects/circle_rigidbody_3"]
+shape = SubResource("CircleShape2D_7f8nx")
+
+[node name="Sprite2D" type="Sprite2D" parent="Collision_Objects/circle_rigidbody_3"]
+scale = Vector2(2.975, 2.92827)
+texture = ExtResource("3_wew1i")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 235.0
+offset_top = -284.0
+offset_right = 527.0
+offset_bottom = -232.0
+theme_override_font_sizes/font_size = 20
+text = "Return to main menu"
+
+[connection signal="tree_entered" from="Fluid2D" to="Fluid2D" method="_on_tree_entered"]
+[connection signal="body_entered" from="Collision_Objects/test object" to="Fluid2D" method="_on_rigid_body_2d_2_body_entered"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
