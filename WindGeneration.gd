@@ -1,14 +1,25 @@
+##WindGeneration uses Lattice Boltzmann Logic when colliding with a Rectangle, or Circle Object.
 class_name WindGeneration extends Fluid2D
+##Add your Fluid2D Node to this script in the inspector, after attaching this script to the Fluid2D Node
 @export var fluid: Fluid2D
+##A Node2D that is the parent of all the collision objects in a scene (Add in the Inspector)
 @export var objects: Node2D
+##The amount of particles you want for the y access (x will always be 1)
 @export var y: int
 
+##An Array that contains all the points in the fluid with their vector placements from the fluid origin (not the scene origin)
 var points_array: PackedVector2Array
+##Contains the velocity that will be applied to the points on the next frame
 var added_vector: PackedVector2Array
+##Is used to spawn particles every 4 frames
 var timer : int = 0
+##Helps counteract gravity
 var grav_dir_opposite : Vector2 
+##Let's us shoot the fluid sideways
 var dir : Vector2
+##A boolean that changes when the spacebar is pressed, so the wind can be started and stopped.
 var spawning : bool
+
 
 func _input(e):
 	if Input.is_action_just_pressed("pause"):
@@ -31,6 +42,7 @@ func _process(delta: float) -> void:
 	fluid_collision(fluid.points, fluid.get_velocities(), objects.get_children())
 	timer += 1
 	
+##Runs the bolzmann algorthim on collsion (Lattice is handled by Fluid2D)
 func boltzmann() -> Vector2:
 	var rng = RandomNumberGenerator.new()
 	var my_random_number = rng.randi_range(1, 36)
@@ -54,6 +66,7 @@ func boltzmann() -> Vector2:
 		return Vector2(-1,1) 
 	return Vector2(0,0)
 
+##Checks each frame if a fluid is colliding with an object
 func fluid_collision(points, velocities, all_objects):
 	for object in all_objects:
 		var collsion_zone = object.get_child(0)
