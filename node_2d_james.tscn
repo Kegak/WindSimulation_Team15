@@ -37,7 +37,7 @@ size = Vector2(20, 105)
 [sub_resource type="CanvasTexture" id="CanvasTexture_ektf1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7f8nx"]
-radius = 30.4138
+radius = 12.1655
 
 [node name="Node2D" type="Node2D"]
 position = Vector2(1, 0)
@@ -156,6 +156,32 @@ position = Vector2(-1.90735e-06, 1.90735e-06)
 scale = Vector2(20, 88)
 texture = SubResource("CanvasTexture_a7dak")
 
+[node name="Left wall bottom2" type="RigidBody2D" parent="Collision_Objects"]
+position = Vector2(0, -87.145)
+freeze = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision_Objects/Left wall bottom2"]
+position = Vector2(-558, 248)
+shape = SubResource("RectangleShape2D_8422a")
+
+[node name="Sprite2D" type="Sprite2D" parent="Collision_Objects/Left wall bottom2/CollisionShape2D"]
+position = Vector2(-1.90735e-06, 1.90735e-06)
+scale = Vector2(20, 88)
+texture = SubResource("CanvasTexture_a7dak")
+
+[node name="Left wall bottom3" type="RigidBody2D" parent="Collision_Objects"]
+position = Vector2(0, -173.31)
+freeze = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision_Objects/Left wall bottom3"]
+position = Vector2(-558, 248)
+shape = SubResource("RectangleShape2D_8422a")
+
+[node name="Sprite2D" type="Sprite2D" parent="Collision_Objects/Left wall bottom3/CollisionShape2D"]
+position = Vector2(-1.90735e-06, 1.90735e-06)
+scale = Vector2(20, 88)
+texture = SubResource("CanvasTexture_a7dak")
+
 [node name="Right wall top" type="RigidBody2D" parent="Collision_Objects"]
 freeze = true
 
@@ -176,7 +202,8 @@ mass = 100000.0
 shape = SubResource("CircleShape2D_7f8nx")
 
 [node name="Sprite2D" type="Sprite2D" parent="Collision_Objects/circle_rigidbody_1"]
-scale = Vector2(2.975, 2.92827)
+position = Vector2(1.52588e-05, 0)
+scale = Vector2(1.1875, 1.16885)
 texture = ExtResource("3_wew1i")
 
 [node name="circle_rigidbody_2" type="RigidBody2D" parent="Collision_Objects"]
@@ -187,7 +214,8 @@ mass = 100000.0
 shape = SubResource("CircleShape2D_7f8nx")
 
 [node name="Sprite2D" type="Sprite2D" parent="Collision_Objects/circle_rigidbody_2"]
-scale = Vector2(2.975, 2.92827)
+position = Vector2(3.57628e-06, 1.90735e-06)
+scale = Vector2(1.11875, 1.10118)
 texture = ExtResource("3_wew1i")
 
 [node name="circle_rigidbody_3" type="RigidBody2D" parent="Collision_Objects"]
@@ -198,7 +226,34 @@ mass = 100000.0
 shape = SubResource("CircleShape2D_7f8nx")
 
 [node name="Sprite2D" type="Sprite2D" parent="Collision_Objects/circle_rigidbody_3"]
-scale = Vector2(2.975, 2.92827)
+position = Vector2(3.33786e-06, 9.53674e-07)
+scale = Vector2(1.16875, 1.15039)
+texture = ExtResource("3_wew1i")
+
+[node name="circle_rigidbody_4" type="RigidBody2D" parent="Collision_Objects"]
+position = Vector2(-363, 0)
+mass = 100000.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision_Objects/circle_rigidbody_4"]
+position = Vector2(0, -75.005)
+shape = SubResource("CircleShape2D_7f8nx")
+
+[node name="Sprite2D" type="Sprite2D" parent="Collision_Objects/circle_rigidbody_4"]
+position = Vector2(0, -74.425)
+scale = Vector2(1.16875, 1.15039)
+texture = ExtResource("3_wew1i")
+
+[node name="circle_rigidbody_5" type="RigidBody2D" parent="Collision_Objects"]
+position = Vector2(-363, 0)
+mass = 100000.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision_Objects/circle_rigidbody_5"]
+position = Vector2(66, 0)
+shape = SubResource("CircleShape2D_7f8nx")
+
+[node name="Sprite2D" type="Sprite2D" parent="Collision_Objects/circle_rigidbody_5"]
+position = Vector2(65.85, 0)
+scale = Vector2(1.16875, 1.15039)
 texture = ExtResource("3_wew1i")
 
 [node name="Button" type="Button" parent="."]
