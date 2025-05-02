@@ -19,24 +19,26 @@ var grav_dir_opposite : Vector2
 var dir : Vector2
 ##A boolean that changes when the spacebar is pressed, so the wind can be started and stopped.
 var spawning : bool
+## Var that determins speed of wind
+var wind_speed : int = 5
 
 
-func _input(e):
+func _input(_e):
 	if Input.is_action_just_pressed("pause"):
 		spawning = !spawning
 
 func _ready() -> void:
 	spawning = true 
-	points_array = create_rectangle_points(1,y) # X means rows and Y is Collumns
+	points_array = create_rectangle_points(1,y) # X means Collumns and Y is Rows
 	added_vector.resize(points_array.size())
 	var gravity_value = ProjectSettings.get("physics/2d/default_gravity")
 	var gravity_dir = ProjectSettings.get("physics/2d/default_gravity_vector")
-	grav_dir_opposite.x = 5
+	grav_dir_opposite.x = wind_speed
 	grav_dir_opposite.y = gravity_dir.x
 	dir = global_transform.basis_xform(grav_dir_opposite * gravity_value)
 	added_vector.fill(dir)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if timer % 4 == 0 && spawning:
 		add_points_and_velocities(points_array,added_vector)
 	fluid_collision(fluid.points, fluid.get_velocities(), objects.get_children())
@@ -67,7 +69,7 @@ func boltzmann() -> Vector2:
 	return Vector2(0,0)
 
 ##Checks each frame if a fluid is colliding with an object
-func fluid_collision(points, velocities, all_objects):
+func fluid_collision(fpoints, velocities, all_objects):
 	for object in all_objects:
 		var collsion_zone = object.get_child(0)
 		if object.body_entered:
@@ -75,17 +77,17 @@ func fluid_collision(points, velocities, all_objects):
 			if (collsion_zone.get_shape() is RectangleShape2D ):
 				var height = collsion_zone.shape.size.y
 				var width = collsion_zone.shape.size.x
-				for point in points:
+				for point in fpoints:
 					if ((object.get_global_transform()[2][0] - (width/2) <= (fluid.get_global_transform()[2][0] + point.x)) and ((fluid.get_global_transform()[2][0] + point.x) <= object.get_global_transform()[2][0] + (width/2))) and ((object.get_global_transform()[2][1] - (height/2) <= (fluid.get_global_transform()[2][1] + point.y)) and ((fluid.get_global_transform()[2][1] + point.y) <= object.get_global_transform()[2][1] + (height/2))):
 						velocities.set(index, boltzmann())
-						set_points_and_velocities(points, velocities)
+						set_points_and_velocities(fpoints, velocities)
 					index += 1
 					
 			if (collsion_zone.get_shape() is CircleShape2D):
-				var radius = collsion_zone.shape.radius
+				var fradius = collsion_zone.shape.radius
 				for point in points:
-					if (((fluid.get_global_transform()[2][0] + point.x) - object.get_global_transform()[2][0])**2 + ((fluid.get_global_transform()[2][1] + point.y) - object.get_global_transform()[2][1])**2) < radius**2:
+					if (((fluid.get_global_transform()[2][0] + point.x) - object.get_global_transform()[2][0])**2 + ((fluid.get_global_transform()[2][1] + point.y) - object.get_global_transform()[2][1])**2) < fradius**2:
 						velocities.set(index, boltzmann())
-						set_points_and_velocities(points, velocities)
+						set_points_and_velocities(fpoints, velocities)
 					index += 1
 	
