@@ -6,7 +6,8 @@ class_name WindGeneration extends Fluid2D
 @export var objects: Node2D
 ##The amount of particles you want for the y access (x will always be 1)
 @export var y: int
-
+## Var that determins speed of wind
+@export var wind_speed : int = 5
 ##An Array that contains all the points in the fluid with their vector placements from the fluid origin (not the scene origin)
 var points_array: PackedVector2Array
 ##Contains the velocity that will be applied to the points on the next frame
@@ -19,9 +20,9 @@ var grav_dir_opposite : Vector2
 var dir : Vector2
 ##A boolean that changes when the spacebar is pressed, so the wind can be started and stopped.
 var spawning : bool
-## Var that determins speed of wind
-var wind_speed : int = 5
-
+## A int to determine how often wind particles spawn
+var frames : int = 4
+var rng = RandomNumberGenerator.new()
 
 func _input(_e):
 	if Input.is_action_just_pressed("pause"):
@@ -39,36 +40,30 @@ func _ready() -> void:
 	added_vector.fill(dir)
 
 func _process(_delta: float) -> void:
-	if timer % 4 == 0 && spawning:
+	var random_Num = rng.randi_range(0,10000)
+	if random_Num < 3900 && random_Num > 3800:
+		if frames < 6:
+			frames += 1
+	elif random_Num < 8900 && random_Num > 8800:
+		if frames > 2:
+			frames -= 1
+		else:
+			frames = 4
+	if timer % frames == 0 && spawning:
 		add_points_and_velocities(points_array,added_vector)
 	fluid_collision(fluid.points, fluid.get_velocities(), objects.get_children())
 	timer += 1
 	
 ##Runs the bolzmann algorthim on collsion (Lattice is handled by Fluid2D)
 func boltzmann() -> Vector2:
-	var rng = RandomNumberGenerator.new()
-	var my_random_number = rng.randi_range(1, 36)
-	if my_random_number <= 16:
-		return Vector2(0,0) 
-	if my_random_number <= 20:
-		return Vector2(0,1) 
-	if my_random_number == 21:
-		return Vector2(1,1) 
-	if my_random_number <= 25:
-		return Vector2(1,0) 
-	if my_random_number == 26:
-		return Vector2(1,-1)
-	if my_random_number <= 30:
-		return Vector2(0,-1)  
-	if my_random_number == 31:
-		return Vector2(-1,-1) 
-	if my_random_number <= 35:
-		return Vector2(-1,0) 
-	if my_random_number == 36:
-		return Vector2(-1,1) 
-	return Vector2(0,0)
+	var boltzmann_weights = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,2,3,3,3,3,4,5,5,5,5,6,7,7,7,7,8]
+	var directions = [[0,0], [0,1], [1,1], [1,0], [1,-1], [0,-1], [-1,-1], [-1,0], [-1,1]]
+	var random_number = rng.randi_range(0, 35)
+	var vect = directions[boltzmann_weights[random_number]]
+	var vector = Vector2(vect[0], vect[1])
+	return vector
 
-##Checks each frame if a fluid is colliding with an object
+## Checks each frame if a fluid is colliding with an object
 func fluid_collision(fpoints, velocities, all_objects):
 	for object in all_objects:
 		var collsion_zone = object.get_child(0)
