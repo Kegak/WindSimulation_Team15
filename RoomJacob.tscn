@@ -1,9 +1,10 @@
-[gd_scene load_steps=19 format=3 uid="uid://dn4c502vblusf"]
+[gd_scene load_steps=15 format=3 uid="uid://dn4c502vblusf"]
 
-
+[ext_resource type="Script" path="res://room_jacob.gd" id="1_enmkb"]
 [ext_resource type="Script" path="res://WindGeneration.gd" id="1_slb57"]
-[ext_resource type="Texture2D" uid="uid://b4c4nsbvhlvrd" path="res://icon.svg" id="2_0r0nm"]
+[ext_resource type="Texture2D" uid="uid://u3s7y8kqqyj1" path="res://addons/kenney_prototype_textures/purple/texture_09.png" id="3_kmlhg"]
 [ext_resource type="Texture2D" uid="uid://o4mo2w2ftx1v" path="res://addons/gut/images/yellow.png" id="3_sffxm"]
+[ext_resource type="Texture2D" uid="uid://dwlmb31gfnxt0" path="res://addons/kenney_prototype_textures/dark/texture_09.png" id="4_8g8x7"]
 
 [sub_resource type="FluidEffect2DViscosityArtificial" id="FluidEffect2DViscosityArtificial_kaha7"]
 
@@ -13,28 +14,17 @@ size = Vector2(229, 202)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_chykx"]
 size = Vector2(777, 27)
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_8ebh8"]
-specular_color = Color(0.00696147, 0.00688516, 0.00667989, 1)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1q14i"]
 size = Vector2(20, 484)
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_doulm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ikbjb"]
 size = Vector2(798, 20)
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_0i6y3"]
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8422a"]
 size = Vector2(20, 88)
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_a7dak"]
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lk617"]
-size = Vector2(20, 105)
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_ektf1"]
+size = Vector2(20, 106.5)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7f8nx"]
 radius = 30.4138
@@ -42,10 +32,9 @@ radius = 30.4138
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5mum8"]
 size = Vector2(20, 211.801)
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_m477o"]
-
 [node name="Node2D" type="Node2D"]
 position = Vector2(1, 0)
+script = ExtResource("1_enmkb")
 
 [node name="Fluid2D" type="Fluid2D" parent="." node_paths=PackedStringArray("fluid", "objects") groups=["fluid"]]
 debug_draw = true
@@ -72,9 +61,9 @@ position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_ykheb")
 
 [node name="Sprite2D" type="Sprite2D" parent="Collision_Objects/test object"]
-position = Vector2(0, 4)
-scale = Vector2(1.78125, 1.57031)
-texture = ExtResource("2_0r0nm")
+position = Vector2(0.5, 3.49999)
+scale = Vector2(0.223633, 0.198242)
+texture = ExtResource("3_kmlhg")
 
 [node name="Floor" type="RigidBody2D" parent="Collision_Objects" groups=["Collsion_Objects"]]
 position = Vector2(-93, 261)
@@ -84,9 +73,9 @@ freeze = true
 shape = SubResource("RectangleShape2D_chykx")
 
 [node name="Sprite2D" type="Sprite2D" parent="Collision_Objects/Floor/CollisionShape2D"]
-position = Vector2(0.249995, -3.33786e-06)
-scale = Vector2(776.5, 27)
-texture = SubResource("CanvasTexture_8ebh8")
+position = Vector2(0, 0.0400007)
+scale = Vector2(0.759766, 0.0272656)
+texture = ExtResource("4_8g8x7")
 
 [node name="Right wall" type="RigidBody2D" parent="Collision_Objects"]
 position = Vector2(287, 5)
@@ -96,9 +85,9 @@ freeze = true
 shape = SubResource("RectangleShape2D_1q14i")
 
 [node name="Sprite2D" type="Sprite2D" parent="Collision_Objects/Right wall/CollisionShape2D"]
-position = Vector2(1.90735e-06, -2.00272e-05)
-scale = Vector2(20, 484)
-texture = SubResource("CanvasTexture_doulm")
+position = Vector2(-3.8147e-06, 1.50003)
+scale = Vector2(0.0195313, 0.477539)
+texture = ExtResource("4_8g8x7")
 
 [node name="Ceiling" type="RigidBody2D" parent="Collision_Objects"]
 position = Vector2(-104, -248)
@@ -108,9 +97,9 @@ freeze = true
 shape = SubResource("RectangleShape2D_ikbjb")
 
 [node name="Sprite2D" type="Sprite2D" parent="Collision_Objects/Ceiling/CollisionShape2D"]
-position = Vector2(0.999983, -1.90735e-06)
-scale = Vector2(800, 20)
-texture = SubResource("CanvasTexture_0i6y3")
+position = Vector2(1.33514e-05, 3.33786e-06)
+scale = Vector2(0.779297, 0.0195313)
+texture = ExtResource("4_8g8x7")
 
 [node name="Left wall bottom" type="RigidBody2D" parent="Collision_Objects"]
 position = Vector2(-471, 203)
@@ -120,21 +109,22 @@ freeze = true
 shape = SubResource("RectangleShape2D_8422a")
 
 [node name="Sprite2D" type="Sprite2D" parent="Collision_Objects/Left wall bottom/CollisionShape2D"]
-position = Vector2(-1.90735e-06, 1.90735e-06)
-scale = Vector2(20, 88)
-texture = SubResource("CanvasTexture_a7dak")
+position = Vector2(1.14441e-05, 0)
+scale = Vector2(0.0195312, 0.0859375)
+texture = ExtResource("4_8g8x7")
 
 [node name="Right wall top" type="RigidBody2D" parent="Collision_Objects"]
 position = Vector2(-493, -184)
 freeze = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Collision_Objects/Right wall top"]
+position = Vector2(0, -0.75)
 shape = SubResource("RectangleShape2D_lk617")
 
 [node name="Sprite2D" type="Sprite2D" parent="Collision_Objects/Right wall top/CollisionShape2D"]
-position = Vector2(-1.90735e-06, -0.999998)
-scale = Vector2(20, 107)
-texture = SubResource("CanvasTexture_ektf1")
+position = Vector2(-2.28882e-05, -0.125006)
+scale = Vector2(0.0195313, 0.10376)
+texture = ExtResource("4_8g8x7")
 
 [node name="circle_rigidbody_1" type="RigidBody2D" parent="Collision_Objects"]
 position = Vector2(-359, 3)
@@ -179,9 +169,9 @@ position = Vector2(-0.04566, -0.286621)
 shape = SubResource("RectangleShape2D_5mum8")
 
 [node name="Sprite2D" type="Sprite2D" parent="Collision_Objects/Bottom slant wall"]
-position = Vector2(-0.0578208, -0.19545)
-scale = Vector2(19.8844, 211.609)
-texture = SubResource("CanvasTexture_m477o")
+position = Vector2(0.121126, -0.683258)
+scale = Vector2(0.0203829, 0.207419)
+texture = ExtResource("4_8g8x7")
 
 [node name="Top slant wall" type="RigidBody2D" parent="Collision_Objects"]
 position = Vector2(-304, -152)
@@ -193,9 +183,9 @@ position = Vector2(-0.04566, -0.286621)
 shape = SubResource("RectangleShape2D_5mum8")
 
 [node name="Sprite2D" type="Sprite2D" parent="Collision_Objects/Top slant wall"]
-position = Vector2(-0.0578208, -0.19545)
-scale = Vector2(19.8844, 211.609)
-texture = SubResource("CanvasTexture_m477o")
+position = Vector2(0.0589981, -0.249728)
+scale = Vector2(0.0193667, 0.206785)
+texture = ExtResource("4_8g8x7")
 
 [node name="small circle 1" type="RigidBody2D" parent="Collision_Objects"]
 position = Vector2(-427, -58)
@@ -248,10 +238,18 @@ scale = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_ykheb")
 
 [node name="Sprite2D" type="Sprite2D" parent="Collision_Objects/test object2"]
-position = Vector2(0, 0.249927)
-scale = Vector2(0.890625, 0.785155)
-texture = ExtResource("2_0r0nm")
+position = Vector2(0, 0.500006)
+scale = Vector2(0.111328, 0.0986328)
+texture = ExtResource("3_kmlhg")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 302.0
+offset_top = -313.0
+offset_right = 549.0
+offset_bottom = -269.0
+text = "Return to main menu"
 
 [connection signal="tree_entered" from="Fluid2D" to="Fluid2D" method="_on_tree_entered"]
 [connection signal="body_entered" from="Collision_Objects/test object" to="Fluid2D" method="_on_rigid_body_2d_2_body_entered"]
 [connection signal="body_entered" from="Collision_Objects/test object2" to="Fluid2D" method="_on_rigid_body_2d_2_body_entered"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
