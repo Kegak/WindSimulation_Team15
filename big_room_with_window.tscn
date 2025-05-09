@@ -8,18 +8,6 @@
 
 [sub_resource type="FluidEffect2DViscosityArtificial" id="FluidEffect2DViscosityArtificial_kaha7"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_182q5"]
-size = Vector2(1928, 27)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cgbaq"]
-size = Vector2(25, 978)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_mtryj"]
-size = Vector2(1953, 20)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bdqwo"]
-size = Vector2(20, 954.375)
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_kicwp"]
 radius = 30.4138
 
@@ -34,6 +22,18 @@ size = Vector2(97, 88)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hpe6c"]
 size = Vector2(96, 88)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_182q5"]
+size = Vector2(1928, 27)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cgbaq"]
+size = Vector2(25, 978)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mtryj"]
+size = Vector2(1953, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bdqwo"]
+size = Vector2(20, 954.375)
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_wo2se")
@@ -53,54 +53,6 @@ y = 4
 zoom = Vector2(0.5, 0.5)
 
 [node name="Collision_Objects" type="Node2D" parent="."]
-
-[node name="Floor" type="RigidBody2D" parent="Collision_Objects" groups=["Collsion_Objects"]]
-freeze = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision_Objects/Floor"]
-position = Vector2(-21, 493)
-shape = SubResource("RectangleShape2D_182q5")
-
-[node name="Sprite2D" type="Sprite2D" parent="Collision_Objects/Floor/CollisionShape2D"]
-position = Vector2(-4.57764e-05, 3.8147e-06)
-scale = Vector2(1.88281, 0.0273438)
-texture = ExtResource("3_h827r")
-
-[node name="Right wall" type="RigidBody2D" parent="Collision_Objects"]
-freeze = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision_Objects/Right wall"]
-position = Vector2(956, 16)
-shape = SubResource("RectangleShape2D_cgbaq")
-
-[node name="Sprite2D" type="Sprite2D" parent="Collision_Objects/Right wall/CollisionShape2D"]
-position = Vector2(5.23925e-05, -9.49999)
-scale = Vector2(0.0253906, 0.977539)
-texture = ExtResource("3_h827r")
-
-[node name="Ceiling" type="RigidBody2D" parent="Collision_Objects"]
-freeze = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision_Objects/Ceiling"]
-position = Vector2(-8.5, -484)
-shape = SubResource("RectangleShape2D_mtryj")
-
-[node name="Sprite2D2" type="Sprite2D" parent="Collision_Objects/Ceiling"]
-position = Vector2(-8.49995, -484)
-scale = Vector2(1.90723, 0.0195313)
-texture = ExtResource("3_h827r")
-
-[node name="Right wall top" type="RigidBody2D" parent="Collision_Objects"]
-freeze = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision_Objects/Right wall top"]
-position = Vector2(-975, 1.8125)
-shape = SubResource("RectangleShape2D_bdqwo")
-
-[node name="Sprite2D" type="Sprite2D" parent="Collision_Objects/Right wall top/CollisionShape2D"]
-position = Vector2(-3.93391e-06, 13.6875)
-scale = Vector2(0.0195313, 0.959961)
-texture = ExtResource("3_h827r")
 
 [node name="circle_rigidbody_1" type="RigidBody2D" parent="Collision_Objects"]
 position = Vector2(-808, -77)
@@ -187,6 +139,54 @@ shape = SubResource("RectangleShape2D_hpe6c")
 position = Vector2(0, -1.52588e-05)
 scale = Vector2(0.09375, 0.0878906)
 texture = ExtResource("5_bhj14")
+
+[node name="Floor" type="RigidBody2D" parent="Collision_Objects" groups=["Collsion_Objects"]]
+freeze = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision_Objects/Floor"]
+position = Vector2(-21, 493)
+shape = SubResource("RectangleShape2D_182q5")
+
+[node name="Sprite2D" type="Sprite2D" parent="Collision_Objects/Floor/CollisionShape2D"]
+position = Vector2(-4.57764e-05, 3.8147e-06)
+scale = Vector2(1.88281, 0.0273438)
+texture = ExtResource("3_h827r")
+
+[node name="Right wall" type="RigidBody2D" parent="Collision_Objects"]
+freeze = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision_Objects/Right wall"]
+position = Vector2(956, 16)
+shape = SubResource("RectangleShape2D_cgbaq")
+
+[node name="Sprite2D" type="Sprite2D" parent="Collision_Objects/Right wall/CollisionShape2D"]
+position = Vector2(5.23925e-05, -9.49999)
+scale = Vector2(0.0253906, 0.977539)
+texture = ExtResource("3_h827r")
+
+[node name="Ceiling" type="RigidBody2D" parent="Collision_Objects"]
+freeze = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision_Objects/Ceiling"]
+position = Vector2(-8.5, -484)
+shape = SubResource("RectangleShape2D_mtryj")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Collision_Objects/Ceiling"]
+position = Vector2(-8.49995, -484)
+scale = Vector2(1.90723, 0.0195313)
+texture = ExtResource("3_h827r")
+
+[node name="Right wall top" type="RigidBody2D" parent="Collision_Objects"]
+freeze = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision_Objects/Right wall top"]
+position = Vector2(-975, 1.8125)
+shape = SubResource("RectangleShape2D_bdqwo")
+
+[node name="Sprite2D" type="Sprite2D" parent="Collision_Objects/Right wall top/CollisionShape2D"]
+position = Vector2(-3.93391e-06, 13.6875)
+scale = Vector2(0.0195313, 0.959961)
+texture = ExtResource("3_h827r")
 
 [node name="Button" type="Button" parent="."]
 offset_left = 587.0
