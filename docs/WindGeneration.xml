@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<?xml-stylesheet type="text/xsl" href="stylesheet.xsl"?>
 <class name="WindGeneration" inherits="Fluid2D" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/godotengine/godot/master/doc/class.xsd">
 	<brief_description>
+		WindGeneration uses Lattice Boltzmann Logic when colliding with a Rectangle, or Circle RigidBody2D Object.
 	</brief_description>
 	<description>
 	</description>
 	<tutorials>
 	</tutorials>
 	<methods>
+		<method name="_input">
+			<return type="void" />
+			<param index="0" name="_e" type="Variant" />
+			<description>
+			</description>
+		</method>
 		<method name="_ready">
 			<return type="void" />
 			<description>
@@ -15,36 +21,61 @@
 		</method>
 		<method name="_process">
 			<return type="void" />
-			<param index="0" name="delta" type="float" />
+			<param index="0" name="_delta" type="float" />
 			<description>
 			</description>
 		</method>
-		<method name="collsion">
-			<return type="void" />
+		<method name="boltzmann">
+			<return type="Vector2" />
 			<description>
+				Runs the bolzmann algorthim on collsion (Lattice is handled by Fluid2D)
 			</description>
 		</method>
-		<method name="_on_rigid_body_2d_2_body_entered">
+		<method name="fluid_collision">
 			<return type="void" />
-			<param index="0" name="body" type="Node" />
+			<param index="0" name="fpoints" type="Variant" />
+			<param index="1" name="velocities" type="Variant" />
+			<param index="2" name="all_objects" type="Variant" />
 			<description>
+				Checks each frame if a fluid is colliding with an object
 			</description>
 		</method>
 	</methods>
 	<members>
 		<member name="fluid" type="Fluid2D" setter="" getter="">
+			Add your Fluid2D Node to this script in the inspector, after attaching this script to the Fluid2D Node
 		</member>
 		<member name="objects" type="Node2D" setter="" getter="">
+			A Node2D that is the parent of all the collision objects in a scene (Add in the Inspector)
 		</member>
-		<member name="new_points" type="PackedVector2Array" setter="" getter="">
+		<member name="y" type="int" setter="" getter="">
+			The amount of particles you want for the y access (x will always be 1)
 		</member>
-		<member name="starting_vectors" type="PackedVector2Array" setter="" getter="">
+		<member name="wind_speed" type="int" setter="" getter="" default="5">
+			Var that determins speed of wind
 		</member>
-		<member name="timer" type="int" setter="" getter="" default="10">
+		<member name="points_array" type="PackedVector2Array" setter="" getter="">
+			An Array that contains all the points in the fluid with their vector placements from the fluid origin (not the scene origin)
 		</member>
-		<member name="x" type="int" setter="" getter="" default="0">
+		<member name="added_vector" type="PackedVector2Array" setter="" getter="">
+			Contains the velocity that will be applied to the points on the next frame
+		</member>
+		<member name="timer" type="int" setter="" getter="" default="0">
+			Is used to spawn particles every 4 frames
 		</member>
 		<member name="grav_dir_opposite" type="Vector2" setter="" getter="">
+			Helps counteract gravity
+		</member>
+		<member name="dir" type="Vector2" setter="" getter="">
+			Let's us shoot the fluid sideways
+		</member>
+		<member name="spawning" type="bool" setter="" getter="">
+			A boolean that changes when the spacebar is pressed, so the wind can be started and stopped.
+		</member>
+		<member name="frames" type="int" setter="" getter="" default="4">
+			A int to determine how often wind particles spawn
+		</member>
+		<member name="rng" type="Variant" setter="" getter="" default="new()">
 		</member>
 	</members>
 </class>
