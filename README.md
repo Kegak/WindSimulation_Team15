@@ -2,7 +2,7 @@ Group 15
 
 Wind Simulation project
 
-The is a Godot Application, to use the program you can run the executable or download Godot 4.3 and run it through the engine. An easy way to run the program is with the shortcut F5. This project will use fluid dynamics to stimulate wind acting upon physics objects using a premade fluid engine, and lattice Boltzmann equations. In the current build of the application, we have a simple fluid falling onto a rigid physics object, we will hopefully have the lattice Boltzmann equations implemented soon.
+The is a Godot Application, to use the program you can run the executable or download Godot 4.3 and run it through the engine. An easy way to run the program is with the shortcut F5. This project uses fluid dynamics to stimulate wind acting upon physics objects using a premade fluid engine, and lattice Boltzmann equations. 
 
 Release notes 2/27/2025
 
@@ -18,6 +18,9 @@ Implemented lattice boltzmann, and set up a basic room
 
 Release notes 4/24/2025
 Each person created new rooms, Teagan started minor refactoring of the code.
+
+Release notes 5/08/24
+Code completely refactored, and asset overhaul. Quality of life changes such as a menu and pause functionality
 
 Additional Branches
 
