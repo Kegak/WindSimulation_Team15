@@ -22,14 +22,19 @@ Each person created new rooms, Teagan started minor refactoring of the code.
 Release notes 5/08/24
 Code completely refactored, and asset overhaul. Quality of life changes such as a menu and pause functionality
 
-Additional Branches
+Branches
 
 Teagan – branch for Teagan 
+
 Keegan - branch for Keegan 
+
 Jacob - Branch for Jacob 
+
 James - Branch for James
+
 Main - Most up-to-date
 
+(No unimplemented changes exist on "non-Main" branches
 License needed in the readme:
 
 MIT License
